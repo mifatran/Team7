@@ -5,7 +5,7 @@ test
 //Emergency, Help Desk, and Security Entity initialization
 
 create table security (
-	Rules varchar(500),
+    Rules varchar(500),
     phone_num char(10),
     booth_location varchar(75)
 );
@@ -16,7 +16,7 @@ create table emergency (
 );
 
 create table help_desk (
-	email varchar(50),
+    email varchar(50),
     phone_num char(10),
     location varchar(75),
     lost_and_found varchar(500)
