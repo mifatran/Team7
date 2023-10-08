@@ -1,1 +1,23 @@
 test
+
+//use the MySQL command "use <insert database schema name here>;" to use the current database and modify it
+
+//Emergency, Help Desk, and Security Entity initialization
+
+create table security (
+    Rules varchar(500),
+    phone_num char(10),
+    booth_location varchar(75)
+);
+
+create table emergency (
+    booth_location varchar (75),
+    phone_num char(10)
+);
+
+create table help_desk (
+    email varchar(50),
+    phone_num char(10),
+    location varchar(75),
+    lost_and_found varchar(500)
+);
