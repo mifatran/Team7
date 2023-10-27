@@ -21,3 +21,13 @@ create table help_desk (
     location varchar(75),
     lost_and_found varchar(500)
 );
+
+//10-13-2023 commit to alter security, emergency, and help_desk tables
+alter table security
+add location_id char(8);
+
+alter table emergency
+add location_id char(8);
+
+alter table help_desk
+add location_id char(8);
