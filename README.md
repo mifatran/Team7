@@ -1,6 +1,6 @@
 # A Theme Park Web App
 
-## Install react-router-dom in with 'npm i react-router-dom' for this web app to work
+## Install react-router-dom with 'npm i react-router-dom' for this web app to work
 
 ## Available Scripts
 
