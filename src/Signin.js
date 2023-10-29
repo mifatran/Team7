@@ -5,7 +5,7 @@ function Signin() {
     return (
     <div className="Signin">
       <ul className="nav-headers">
-        <li className="nav-item">Theme Park</li>
+        <li className="nav-item"><b>Theme Park</b></li>
         <li className="nav-item">About</li>
         <li className="nav-item">
             {/* Endpoint to route to Signup component */} 
@@ -15,8 +15,8 @@ function Signin() {
       </ul>
 
       <div className="signin-body">
-        <form>
-          <h3>Theme Park</h3>
+        <form className="signin-form">
+          <h3>Sign in</h3>
 
           <label for="username">Username</label>
           <input type="text" placeholder="Username" id="username"/>
@@ -24,7 +24,7 @@ function Signin() {
           <label for="password">Password</label>
           <input type="password" placeholder="Password" id="password"/>
 
-          <button>Log In</button>
+          <button className="login-button">Log In</button>
         </form>
       </div>
       

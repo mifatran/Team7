@@ -4,22 +4,22 @@ import { Link } from "react-router-dom";
 function Signup() {
     return (
     <div className="Signup">
-      <ul className="nav-headers">
-        <li className="nav-item">Theme Park</li>
-        <li className="nav-item">About</li>
-        <li className="nav-item">
+      <ul className="nav-headers-su">
+        <li className="nav-item-su">Theme Park</li>
+        <li className="nav-item-su">About</li>
+        <li className="nav-item-su">
             {/* Endpoint to route to Signin component */} 
             <Link to="/">Sign in</Link> 
         </li>
-        <li className="nav-item">Contact</li>
+        <li className="nav-item-su">Contact</li>
       </ul>
 
-      <div className="signin-body">
-        <form>
-          <h3>Theme Park</h3>
+      <div className="signup-body">
+        <form className="signup-form">
+          <h3>Sign up</h3>
 
           <label for="username">Email</label>
-          <input type="text" placeholder="Email" id="username"/>
+          <input type="text" placeholder="Email" id="email"/>
 
           <label for="username">Username</label>
           <input type="text" placeholder="Username" id="username"/>
@@ -27,7 +27,7 @@ function Signup() {
           <label for="password">Password</label>
           <input type="password" placeholder="Password" id="password"/>
 
-          <button>Sign up</button>
+          <button className="signup-button">Sign up</button>
         </form>
       </div>
       
