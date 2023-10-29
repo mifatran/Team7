@@ -18,7 +18,7 @@ function Signin() {
         <form className="signin-form">
           <h3>Sign in</h3>
 
-          <label for="username">Enter Your Username</label>
+          <label for="username">Username</label>
           <input type="text" placeholder="Username" id="username"/>
 
           <label for="password">Password</label>
