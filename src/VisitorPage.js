@@ -1,7 +1,7 @@
-import './VisitorPage.css';
+import './App.css';
 import React, { useState } from 'react';
-import {Link} from "react-router-dom";
-function VisitorPage() {
+
+function App() {
   const [visible, setVisibleSection] = useState('section1');
 
   const showSection = (section) => {
@@ -95,4 +95,4 @@ function VisitorPage() {
   );
 }
 
-export default VisitorPage;
+export default App;
