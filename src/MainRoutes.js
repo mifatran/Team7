@@ -15,6 +15,8 @@ function MainRoutes() {
         with path "/Signin", in component  
         props we passes the imported component*/} 
         <Route path="/Signup" Component={Signup} /> 
+
+        <Route path="/VisitorPage" Component={VisitorPage} /> 
       </Routes>
   );
 }
