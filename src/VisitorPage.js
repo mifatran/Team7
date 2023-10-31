@@ -1,7 +1,7 @@
 import './VisitorPage.css';
 import React, { useState } from 'react';
 import {Link} from "react-router-dom";
-function App() {
+function VisitorPage() {
   const [visible, setVisibleSection] = useState('section1');
 
   const showSection = (section) => {
