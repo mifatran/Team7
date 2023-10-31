@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Signin from "./Signin";
 import Signup from "./Signup";
+import VisitorPage from "./VisitorPage";
 
 function MainRoutes() {
   return (
