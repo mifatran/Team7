@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Signin from "./Signin";
 import Signup from "./Signup";
 import VisitorPage from "./VisitorPage";
+import Main_pg_cust from "./Main_pg_cust;
 
 function MainRoutes() {
   return (
@@ -19,6 +20,7 @@ function MainRoutes() {
 
         <Route path="/VisitorPage" Component={VisitorPage} /> 
       </Routes>
+        <Route path="/Main_pg_cust" Component={Main_pg_cust} />
   );
 }
 
