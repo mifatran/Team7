@@ -9,7 +9,7 @@ function Main_pg() {
       <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
       <ul className='headers'>
         <li className='header_item'><b>DB Theme Park</b></li>
-        <li className='header_item'>Sign Out</li>
+        <li className='header_item' id='sign_out'>Sign Out</li>
       </ul>
       <div className='welcome'>
           <p className='welcome_line'><b>Welcome back to DB Theme Park!</b></p>
