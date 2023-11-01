@@ -1,83 +1,215 @@
-import './Main_pg_cust.css';
-
-function Main_pg_cust() {
-  
-  return (
-    <div className='App'>
-      <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
-      <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
-      <ul className='headers'>
-        <li className='header_item'><b>DB Theme Park</b></li>
-        <li className='header_item'>Sign Out</li>
-      </ul>
-      <div className='welcome'>
-          <p className='welcome_line'><b>Welcome back to DB Theme Park!</b></p>
-      </div>
-      <div className='img_outer'>
-          <img src='https://www.tripelle.com/wp-content/uploads/2019/05/Amusement-Parks-in-U.S..jpg' alt='Theme Park' className='image'></img>
-      </div>
-      <div>
-          <p className='slogan'><b>Fun for everyone!</b></p>
-          <p className='startyear'>Founded in 2022.</p>
-      </div>
-      <div>
-        <p className='park_info'><b>Park Information</b></p>
-      </div>
-      <div className='event'>
-        <p className='events'><b>Events</b></p>
-        <p className='event_invt'>Come attend one of the upcoming Db Theme Park latest events!</p>
-        <p className='event_invt'>Admission payment at entrance of event location</p>
-      </div>
-      <table  className='event_table'>
-        <tr className='event_columns'>
-          <th>Event</th>
-          <th>Date</th>
-          <th>Description</th>
-          <th>Location</th>
-          <th>Price</th>
-        </tr>
-      </table>
-      <div className='ticket'>
-        <p className='tickets'><b>Tickets</b></p>
-        <p className='ticket_info'>Want to visit DB Theme Park? Here are the ticket options and
-        their prices below!</p>
-        <p className='ticket_info'>Tickets are required to event the park.</p>
-      </div>
-      <table className='ticket_table'>
-        <tr className='ticket_columns'>
-          <th>Ticket type</th>
-          <th>Cost</th>
-        </tr>
-      </table>
-      <div className='theme_zone'>
-        <p className='theme_zones'><b>Theme Zones</b></p>
-        <ul>
-        <li>Rides</li>
-        <table className='ride_table'>
-          <tr className='ride_columns'>
-            <th>Ride</th>
-            <th>Type</th>
-            <th>Description</th>
-          </tr>
-        </table>
-        <li>Restaurant</li>
-        <table className='food_table'>
-          <tr className='food_columns'>
-            <th>Restaurant</th>
-            <th>Type</th>
-          </tr>
-        </table>
-        <li>Merchandise Shop</li>
-        <table className='shop_table'>
-          <tr className='shop_columns'>
-            <th>Shop</th>
-          </tr>
-        </table>
-        </ul>
-      </div>
-    </div>
-
-);
+.headers li:first-child{
+  float: left;
 }
-export default Main_pg_cust;
+
+.headers{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(191, 26, 47, 1);
+}
+
+.header_item{
+  font-family: 'Jomhuria', sans-serif;
+  float: right;
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  font-size: 35px;
+  letter-spacing: 1px;
+}
+
+#sign_out{
+  font-family: 'Mitr', serif;
+  font-size: 20px;
+}
+
+.welcome{
+  text-align: center;
+}
+
+.welcome_line{
+  color: #000000;
+  font-family: 'Jomhuria', serif;
+  font-size: 80px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.img_outer{
+  text-align: center;
+  overflow: hidden;
+}
+
+.image{
+  margin: -240px 0 -320px 0;
+
+}
+
+.slogan{
+  margin-left: 230px;
+  color: #000000;
+  font-family: 'Jomhuria', serif;
+  font-size: 80px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.startyear{
+  margin-left: 230px;
+  color: #000000;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 25px;
+  margin-top: -80px;
+}
+
+.park_info{
+  margin-left: 230px;
+  color: #000000;
+  font-family: 'Jomhuria', serif;
+  font-size: 80px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.event{
+  margin-left: 250px;
+}
+
+.events{
+  color: #000000;
+  font-family: 'Mitr', serif;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.event_invt{
+  margin-bottom: -8px;
+  color: #000000;
+  font-family:'Josefin Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.event_table {
+  margin-left: 250px;
+  margin-top: 40px ;
+  background: #d9d9d9;
+  border: 1px solid;
+  border-color: #000000;
+  height: 300px;
+  width: 1355px;
+}
+
+.event_columns{
+  font-family:'Josefin Sans', sans-serif;
+  font-size: 20px;
+  position: absolute;
+  border-collapse: separate;
+  border-spacing: 150px 0;
+}
+
+.ticket{
+  margin-left: 250px;
+}
+
+.tickets{
+  color: #000000;
+  font-family: 'Mitr', serif;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.ticket_info{
+  margin-bottom: -8px;
+  color: #000000;
+  font-family:'Josefin Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.ticket_table{
+  margin-left: 250px;
+  margin-top: 40px ;
+  background: #d9d9d9;
+  border: 1px solid;
+  border-color: #000000;
+  height: 300px;
+  width: 400px;
+}
+
+.ticket_columns{
+  font-family:'Josefin Sans', sans-serif;
+  font-size: 20px;
+  position: absolute;
+  border-collapse: separate;
+  border-spacing: 80px 0;
+}
+
+.theme_zone{
+  margin-left: 250px;
+  color: #000000;
+  font-family: 'Mitr', serif;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.ride_table{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background: #d9d9d9;
+  border: 1px solid;
+  border-color: #000000;
+  height: 300px;
+  width: 1000px;
+}
+
+.ride_columns{
+  font-family:'Josefin Sans', sans-serif;
+  font-size: 20px;
+  position: absolute;
+  border-collapse: separate;
+  border-spacing: 150px 0;
+}
+
+.food_table{
+  margin-top: 40px ;
+  margin-bottom: 40px;
+  background: #d9d9d9;
+  border: 1px solid;
+  border-color: #000000;
+  height: 300px;
+  width: 700px;
+}
+
+.food_columns{
+  font-family:'Josefin Sans', sans-serif;
+  font-size: 20px;
+  position: absolute;
+  border-collapse: separate;
+  border-spacing: 150px 0;
+}
+
+.shop_table{
+  margin-top: 40px ;
+  margin-bottom: 40px;
+  background: #d9d9d9;
+  border: 1px solid;
+  border-color: #000000;
+  height: 100px;
+  width: 300px;
+}
+
+.shop_columns{
+  font-family:'Josefin Sans', sans-serif;
+  font-size: 20px;
+  position: absolute;
+  border-collapse: separate;
+  border-spacing: 100px 0;
+}
