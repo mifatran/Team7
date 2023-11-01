@@ -1,5 +1,4 @@
 import './Main_pg_cust.css';
-import { Link } from 'react-router-dom'
 
 function Main_pg_cust() {
   
@@ -56,17 +55,23 @@ function Main_pg_cust() {
         <ul>
         <li>Rides</li>
         <table className='ride_table'>
-          <tr className='ride_column'>
+          <tr className='ride_columns'>
             <th>Ride</th>
             <th>Type</th>
             <th>Description</th>
           </tr>
         </table>
-        <li>Food</li>
+        <li>Restaurant</li>
         <table className='food_table'>
-          <tr className='food_column'>
+          <tr className='food_columns'>
             <th>Restaurant</th>
             <th>Type</th>
+          </tr>
+        </table>
+        <li>Merchandise Shop</li>
+        <table className='shop_table'>
+          <tr className='shop_columns'>
+            <th>Shop</th>
           </tr>
         </table>
         </ul>
