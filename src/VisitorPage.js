@@ -1,17 +1,11 @@
-import './App.css';
+import './visitorpage.css';
 import React, { useState } from 'react';
 
-function App() {
+function visitorpage() {
   const [visible, setVisibleSection] = useState('section1');
 
   const showSection = (section) => {
     setVisibleSection(section);
-  }
-  
-  const [vis, setVisSection] = useState('');
-
-  const showSections = (section) => {
-    setVisSection(section);
   }
   
   
@@ -287,4 +281,4 @@ function App() {
   );
 }
 
-export default App;
+export default visitorpage;
