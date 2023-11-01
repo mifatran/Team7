@@ -147,14 +147,34 @@
   width: 168px;
 }
 
+.UpdateAccInfoSection{
+  height: 100px;
+  left: 0px;
+  position: absolute;
+  top: 100;
+  width: 90vw;
+}
+.UpdateAccPasSection{
+  height: 100px;
+  left: 0px;
+  position: absolute;
+  top: 100;
+  width: 90vw;
+}
 
+.PurchTicketSection{
+  height: 200px;
+  left: 0px;
+  position: absolute;
+  top: 1;
+  width: 90vw;
+}
 
 button {
   background-color: rgba(255, 255, 255, 0);
   color: rgb(0, 0, 0);
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px 20px;
-  border-radius: 5px;
   border: none;
   cursor: pointer;
 }
@@ -166,3 +186,9 @@ button {
   top: 0;
   width: 1000px;
 }
+
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
