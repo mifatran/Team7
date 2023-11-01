@@ -54,8 +54,21 @@ function Main_pg_cust() {
       <div className='theme_zone'>
         <p className='theme_zones'><b>Theme Zones</b></p>
         <ul>
-        <li className='rides'>Rides</li>
-        <li className='food'>Food</li>
+        <li>Rides</li>
+        <table className='ride_table'>
+          <tr className='ride_column'>
+            <th>Ride</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </table>
+        <li>Food</li>
+        <table className='food_table'>
+          <tr className='food_column'>
+            <th>Restaurant</th>
+            <th>Type</th>
+          </tr>
+        </table>
         </ul>
       </div>
     </div>
