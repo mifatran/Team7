@@ -51,7 +51,8 @@ function App() {
 
             <div style={{ display: visible === 'section1' ? 'block' : 'none' }}>
               <div className="optiontextbox">
-                <h2>Your Account Information - VisitorID:</h2>
+                <h2>Your Account Information</h2>
+                <h3>Visitor ID: </h3>
                   <div class = "Account-Info">
                   <table>
                       <tr>
@@ -105,7 +106,7 @@ function App() {
                         <td>Jane234324</td>
                       </tr>
                       </table>
-                  <p> Do you want to change you password?</p>
+                  <p> Do you want to change your password?</p>
                   <div className="UpdateAccPasSection">
                       <form id="edit" method="POST" action="">
                           <p>
@@ -127,7 +128,7 @@ function App() {
             <div style={{ display: visible === 'section2' ? 'block' : 'none' }}>
               <div className="optiontextbox">
                 <h2>Purchase a ticket</h2>
-                <p>Ticket Information</p>
+                <h3>Ticket Information</h3>
                 <table>
                       <tr>
                         <th>Ticket Type </th>
@@ -205,15 +206,67 @@ function App() {
 
             <div style={{ display: visible === 'section3' ? 'block' : 'none' }}>
               <div className="optiontextbox">
-                <h2>Some things you should know before you get here.</h2>
-                <p>Section 3 content goes here... Some things you should know before you get here. Park infoPark infoPark infoPark infoPark infoPark infoPark info</p>
+                <h2>Park Information</h2>
+                <p>Here are some things you should know before you get here!</p>
+                <br></br>
+
+                <h3>Rides With Accessability Services</h3>
+                <table>
+                      <tr>
+                        <th>Ride Names </th>
+                        <th>Zone Area </th>
+
+                      </tr>
+                      <tr>
+                        <td>The placeholdinator</td>
+                        <td>placeholdinatorazone</td>
+                      </tr>
+                </table>
+                <br></br>
+                <h3>Unavailable Rides</h3>
+                <table>
+                      <tr>
+                        <th>Ride Names </th>
+                        <th>Zone Area </th>
+
+                      </tr>
+                      <tr>
+                        <td>The placeholdinator</td>
+                        <td>placeholdinatorazone</td>
+
+                      </tr>
+                  </table>
+                <br></br>
+                <h3>Services Information</h3>
+                <table class = "Services" id = "ServiceInfo">
+                       <tr>
+                        <th>Service </th>
+                        <th>Location </th>
+                        <th>Phone Number </th>
+                        <th>Email </th>
+                        <th>Location </th>
+                      </tr>
+                      <tr>
+                        <td>The placeholdinator</td>
+                        <td>placeholdinatorazone</td>
+                        <td>I have no idea this is a placeholder</td>
+                        <td>I have no idea this is a placeholder</td>
+                        <td>The placeholdinator</td>
+
+                      </tr>
+                 </table>
+                  <br></br>
+                 <h3>More Information</h3>
+                 <p> Parking is included with the purchase of ticket(s). <br>
+                 </br>Tickets are required to enter the park. One ticket allows entry for one visitor. <br></br> </p>
+
               </div>
             </div>
 
             <div style={{ display: visible === 'section4' ? 'block' : 'none' }}>
               <div className="optiontextbox">
                 <h2>Are you sure you want to delete your account?</h2>
-                <p> Deleting your account will mean that you'll know longer have access to it. Are you ok with that?</p>
+                <p> Deleting your account will mean that you'll know longer have access to it and your information will be deleted. Are you ok with that?</p>
                 <button className="DeleteAccButtonConfirm"onClick={() => showSection('section5')}>
                 Yes, that's ok.
               </button>
