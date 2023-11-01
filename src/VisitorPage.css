@@ -49,7 +49,7 @@
   border: 1px solid;
   border-color: #000000;
   border-radius: 22px;
-  height: 715px;
+  height: 80vw;
   left: 0;
   position: absolute;
   top: 0;
@@ -61,7 +61,7 @@
   border: 1px solid;
   border-color: #000000;
   border-radius: 8px;
-  height: 715px;
+  height: 80vw;
   left: 0;
   position: absolute;
   top: 0;
@@ -143,7 +143,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 650px;
+  top: 300px;
   width: 168px;
 }
 
@@ -192,3 +192,6 @@ table, th, td {
   padding: 5px;
 }
 
+h3{
+  font-size: 16px;
+}
