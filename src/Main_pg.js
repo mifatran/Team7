@@ -1,5 +1,6 @@
 import './Main_pg.css';
 
+
 function Main_pg() {
   
   return (
@@ -8,21 +9,21 @@ function Main_pg() {
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
       <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
       <ul className='headers'>
-        <li className='header_item'><b>DB Theme Park</b></li>
+        <li className='header_item'>DB Theme Park</li>
         <li className='header_item' id='sign_out'>Sign Out</li>
       </ul>
       <div className='welcome'>
-          <p className='welcome_line'><b>Welcome back to DB Theme Park!</b></p>
+          <p className='welcome_line'>Welcome back to DB Theme Park!</p>
       </div>
       <div className='img_outer'>
           <img src='https://www.tripelle.com/wp-content/uploads/2019/05/Amusement-Parks-in-U.S..jpg' alt='Theme Park' className='image'></img>
       </div>
       <div>
-          <p className='slogan'><b>Fun for everyone!</b></p>
+          <p className='slogan'>Fun for everyone!</p>
           <p className='startyear'>Founded in 2022.</p>
       </div>
       <div>
-        <p className='park_info'><b>Park Information</b></p>
+        <p className='park_info'>Park Information</p>
       </div>
       <div className='event'>
         <p className='events'><b>Events</b></p>
@@ -53,7 +54,7 @@ function Main_pg() {
       <div className='theme_zone'>
         <p className='theme_zones'><b>Theme Zones</b></p>
         <ul>
-        <li>Rides</li>
+        <li id='ride'>Rides</li>
         <table className='ride_table'>
           <tr className='ride_columns'>
             <th>Ride</th>
@@ -61,14 +62,14 @@ function Main_pg() {
             <th>Description</th>
           </tr>
         </table>
-        <li>Restaurant</li>
+        <li id='restaurant'>Restaurant</li>
         <table className='food_table'>
           <tr className='food_columns'>
             <th>Restaurant</th>
             <th>Type</th>
           </tr>
         </table>
-        <li>Merchandise Shop</li>
+        <li id='shop'>Merchandise Shop</li>
         <table className='shop_table'>
           <tr className='shop_columns'>
             <th>Shop</th>
