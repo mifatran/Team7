@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Signin from "./Signin";
 import Signup from "./Signup";
-import VisitorPage from "./Visitorpage";
+import Visitorpage from "./Visitorpage";
 
 function MainRoutes() {
   return (
@@ -17,7 +17,7 @@ function MainRoutes() {
         props we passes the imported component*/} 
         <Route path="/Signup" Component={Signup} /> 
 
-        <Route path="/VisitorPage" Component={VisitorPage} /> 
+        <Route path="/Visitorpage" Component={Visitorpage} /> 
       </Routes>
   );
 }
