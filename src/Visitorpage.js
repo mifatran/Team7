@@ -1,5 +1,6 @@
 import './Visitorpage.css';
 import React, { useState } from 'react';
+import { Link } from "react-router-dom"; 
 
 function Visitorpage() {
   const [visible, setVisibleSection] = useState('section1');
@@ -8,12 +9,23 @@ function Visitorpage() {
     setVisibleSection(section);
   }
   
+  const [vis, setVisSection] = useState('');
+
+  const showSections = (section) => {
+    setVisSection(section);
+  }
+  
   
   return (
     <div className="App">
+       <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+      <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
       <ul className="nav-headers">
-        <li className="nav-item"><b>Theme Park</b></li>
-        <li className="nav-item">Sign Out</li>
+        <li className="nav-item"><u>DB Theme Park</u></li>
+        <li className="nav-item" id='signout'>
+        <Link to="/">Sign Out</Link>
+          </li>
       </ul>
 
         <div className="welcome-back-visitor">
