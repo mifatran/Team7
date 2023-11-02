@@ -1,5 +1,8 @@
-.nav-headers li:first-child {
+.nav-headers li:first-child *{
   float: left;
+  font-family: 'Jomhuria', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
 }
 
 .nav-headers {
@@ -8,6 +11,10 @@
   padding: 0;
   overflow: hidden;
   background-color: rgba(191, 26, 47, 1);
+}
+
+#signout *{
+  color: white;
 }
 
 .nav-item {
