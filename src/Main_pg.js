@@ -1,4 +1,5 @@
 import './Main_pg.css';
+import { Link } from "react-router-dom"; 
 
 function Main_pg() {
   
@@ -8,9 +9,13 @@ function Main_pg() {
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
       <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
       <ul className='headers'>
-        <li className='header_item'>DB Theme Park</li>
-        <li className='header_item' id='sign_out'> Sign Out</li>
-        <li className='header_item' id='account'>Account</li>
+        <li className='header_item'><u>DB Theme Park</u></li>
+        <li className='header_item' id='sign_up'> 
+        <Link to='/Signup'>Sign up</Link>
+        </li>
+        <li className='header_item' id='sign_in'>
+          <Link to='/Signin'>Sign in</Link>
+        </li>
       </ul>
       <div className='welcome'>
           <p className='welcome_line'>Welcome back to DB Theme Park!</p>
