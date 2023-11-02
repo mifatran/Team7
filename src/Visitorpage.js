@@ -165,7 +165,7 @@ function Visitorpage() {
                 <p>Complete the section below to get your tickets</p>
                 <div className="PurchTicketSection">
                       <form id="edit" method="POST" action="">
-                          <p>
+                          <p className='purchase_ticket'>
                               <label for="FirstName ">First Name:  </label>
                               <input id="FName" type="text" name="username1" value=""/>
                               <label for="LastName">Last Name: </label>
@@ -177,17 +177,13 @@ function Visitorpage() {
 
                               <label for="Username">Card Number: </label>
                               <input id="UName" type="text" name="username1" value=""/>
-
-
-
                           </p>
                           <p>
                               <button id="update1submit" type="submit">Submit</button>
                           </p>
 
                       </form>
-                  </div>
-                  <br></br><br></br><br></br><br></br>
+                  
                   <h2>Previous Purchases</h2>
                   <table class = "PrevTicketPurch" id = "PrevTicket">
                   <tr>
@@ -206,7 +202,7 @@ function Visitorpage() {
 
                  <p> You must show your customer ID before you can get into the park<br></br>This can be found in your account information.</p>
 
-
+                 </div>
               </div>
             </div>
 
