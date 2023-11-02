@@ -4,12 +4,17 @@ import { Link } from "react-router-dom";
 function Signup() {
     return (
     <div className="Signup">
+      <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+      <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
       <ul className="nav-headers-su">
-        <li className="nav-item-su">Theme Park</li>
+        <li className="nav-item-su" id='mainpg'>
+        <Link to='/'>DB Theme Park</Link>
+        </li>
         <li className="nav-item-su">About</li>
-        <li className="nav-item-su">
+        <li className="nav-item-su" id='signin'>
             {/* Endpoint to route to Signin component */} 
-            <Link to="/">Sign in</Link> 
+            <Link to="/Signin">Sign in</Link> 
         </li>
         <li className="nav-item-su">Contact</li>
       </ul>
@@ -27,7 +32,9 @@ function Signup() {
           <label for="password">Password</label>
           <input type="password" placeholder="Password" id="password"/>
 
-          <button className="signup-button">Sign up</button>
+          <button className="signup-button">
+            <Link to='/Signin'>Sign up</Link>
+          </button>
         </form>
       </div>
       
