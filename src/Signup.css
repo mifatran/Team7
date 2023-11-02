@@ -1,88 +1,204 @@
-.Signup {
-    height: 100vh;
-  }
-  
-  .nav-headers-su {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgba(191, 26, 47, 1);
-  }
-  
-  .nav-headers-su li:first-child {
-    float: left;
-  }
-  
-  .nav-item-su {
-    float: right;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    /*font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;*/
-    font-size: 20px;
-  }
-  
-  .signup-body {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(https://images.pexels.com/photos/1194723/pexels-photo-1194723.jpeg);
-  }
-  
-  .signup-form {
-    width: 400px;
-    background-color: rgba(236, 175, 40, 0.96);
-    border-radius: 10px;
-    border: 2px solid rgba(255,255,255,0.0);
-    padding: 50px 35px;
-    margin: 20px;
-  }
-  
-  .signup-form *{
-    color: #ffffff;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
-  }
-  
-  .signup-form h3{
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-  }
-  
-  label{
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
-  }
-  
-  #email, #username, #password{
-    display: block;
-    height: 50px;
-    width: 100%;
-    color: rgba(9, 9, 9, 0.8);
-    background-color: rgba(255, 255, 255, 0.874);
-    border-radius: 10px;
-    padding: 0px;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
-    text-indent: 5px;
-  }
+.nav-headers li:first-child *{
+  float: left;
+  font-family: 'Jomhuria', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+}
 
-  .signup-button{
-    margin-top: 50px;
-    width: 100%;
-    background-color: rgba(189, 88, 79, 1);
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 10px;
-    cursor: pointer;
-  }
+.nav-headers {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(191, 26, 47, 1);
+}
+
+#signout *{
+  color: white;
+}
+
+.nav-item {
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  /*font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;*/
+  font-size: 20px;
+}
+
+
+.welcome-back-visitor {
+  color: #000000;
+  font-family: "Jomhuria-Regular", Helvetica;
+  font-size: 40px;
+  font-weight: 400;
+  left: 70px;
+  letter-spacing: 0;
+  position: absolute;
+  top: 150px;
+
+
+}
+
+.group {
+  height: 784px;
+  left: 64px;
+  position: absolute;
+  top: 252px;
+  width: 1321px;
+}
+
+
+
+.mainbox {
+  background: linear-gradient(180deg, rgb(236, 243, 246) 99.99%, rgb(255, 239, 176) 100%);
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 22px;
+  height: 80vw;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 90vw;
+}
+
+.menubox {
+  background: linear-gradient(180deg, rgb(255, 255, 255) 99.99%, rgb(255, 239, 176) 100%);
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 8px;
+  height: 80vw;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 213px;
+}
+
+.optionbox {
+  background: linear-gradient(180deg, rgb(255, 255, 255) 99.99%, rgb(255, 239, 176) 100%);
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 8px;
+  height: 67px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 213px;
+}
+
+.Menutxt {
+  color: #000000;
+  font-size: 24px;
+  left: 66px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 18px;
+  width: 93px;
+}
+
+.AccInfoButton {
+  color: #000000;
+  font-size: 20px;
+  left: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 80px;
+  width: 168px;
+}
+
+.ParkInfoButton{
+  color: #000000;
+  font-size: 20px;
+  left: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 150px;
+  width: 168px;
+}
+
+.TicketInfoButton {
+  color: #000000;
+  font-size: 20px;
+  left: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 220px;
+  width: 168px;
+}
+.DeleteAccButtonConfirm {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+  color: #ff0404;
+  font-size: 20px;
+  left: -20px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 100px;
+  width: 168px;
+}
+
+.DeleteButton {
+  color: #ff0404;
+  font-size: 20px;
+  left: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 300px;
+  width: 168px;
+}
+
+.UpdateAccInfoSection{
+  height: 100px;
+  left: 0px;
+  position: absolute;
+  top: 100;
+  width: 90vw;
+}
+.UpdateAccPasSection{
+  height: 100px;
+  left: 0px;
+  position: absolute;
+  top: 100;
+  width: 90vw;
+}
+
+.PurchTicketSection{
+  height: 200px;
+  left: 0px;
+  position: absolute;
+  top: 1;
+  width: 90vw;
+}
+
+button {
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.optiontextbox {
+  height: 100px;
+  left: 250px;
+  position: absolute;
+  top: 0;
+  width: 1000px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+h3{
+  font-size: 16px;
+}
