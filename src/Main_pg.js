@@ -1,6 +1,5 @@
 import './Main_pg.css';
 
-
 function Main_pg() {
   
   return (
@@ -10,7 +9,8 @@ function Main_pg() {
       <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
       <ul className='headers'>
         <li className='header_item'>DB Theme Park</li>
-        <li className='header_item' id='sign_out'>Sign Out</li>
+        <li className='header_item' id='sign_out'> Sign Out</li>
+        <li className='header_item' id='account'>Account</li>
       </ul>
       <div className='welcome'>
           <p className='welcome_line'>Welcome back to DB Theme Park!</p>
@@ -36,7 +36,6 @@ function Main_pg() {
           <th>Date</th>
           <th>Description</th>
           <th>Location</th>
-          <th>Price</th>
         </tr>
       </table>
       <div className='ticket'>
@@ -73,6 +72,14 @@ function Main_pg() {
         <table className='shop_table'>
           <tr className='shop_columns'>
             <th>Shop</th>
+          </tr>
+        </table>
+        <li id='amenities'>Amenities and Service</li>
+        <table className='amenities_table'>
+          <tr className='amenities_columns'>
+            <th>Amenity</th>
+            <th>Type</th>
+            <th>Description</th>
           </tr>
         </table>
         </ul>
