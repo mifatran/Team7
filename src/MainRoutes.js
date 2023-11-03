@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 
 import Main_pg from "./Main_pg";
 import Signin from "./Signin";
@@ -7,14 +7,12 @@ import Visitorpage from "./Visitorpage";
 
 function MainRoutes() {
   return (
-    <BrowserRouter>
-        <Routes> 
+        <Routes>
           <Route path="/" element={<Main_pg />} />
-          <Route path="/Signin" element={<Signin />} /> 
-          <Route path="/Signup" element={<Signup />} /> 
+          <Route path="/Signin" element={<Signin />} />
+          <Route path="/Signup" element={<Signup />} />
           <Route path="/Visitorpage" element={<Visitorpage />} />
         </Routes>
-      </BrowserRouter>
   );
 }
 
