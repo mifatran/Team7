@@ -9,11 +9,6 @@ function Visitorpage() {
     setVisibleSection(section);
   }
   
-  const [vis, setVisSection] = useState('');
-
-  const showSections = (section) => {
-    setVisSection(section);
-  }
   
   
   return (
