@@ -1,5 +1,4 @@
 import './Visitorpage.css';
-import React, { useState } from 'react';
 import { Link } from "react-router-dom"; 
 
 function Visitorpage() {
