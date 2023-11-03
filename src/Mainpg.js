@@ -1,7 +1,7 @@
-import './Main_pg.css';
+import './Mainpg.css';
 import { Link } from "react-router-dom"; 
 
-function Main_pg() {
+function Mainpg() {
   
   return (
     <div className='App'>
@@ -93,4 +93,4 @@ function Main_pg() {
 
 );
 }
-export default Main_pg;
+export default Mainpg;
