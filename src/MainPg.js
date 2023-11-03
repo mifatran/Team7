@@ -10,8 +10,11 @@ function MainPg() {
       <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
       <ul className='headers'>
         <li className='header_item'><u>DB Theme Park</u></li>
+        <li className='header_item' id='business_analytics'> 
+          <Link to='/BusinessAnalyst'>Business Analytics</Link>
+        </li>
         <li className='header_item' id='sign_up'> 
-        <Link to='/Signup'>Sign up</Link>
+          <Link to='/Signup'>Sign up</Link>
         </li>
         <li className='header_item' id='sign_in'>
           <Link to='/Signin'>Sign in</Link>
