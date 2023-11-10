@@ -19,7 +19,6 @@ function Signin() {
         </li>
         <li className="nav-item">Contact</li>
       </ul>
-      <img src='https://townsquare.media/site/11/files/2022/02/attachment-grace-ho-zej4HPQLR5o-unsplash-e1643878973835.jpg' alt='Theme Park' className='img'></img>
       <div className="signin-body">
         <form className="signin-form">
           <h3>Sign in</h3>
