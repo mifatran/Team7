@@ -1,7 +1,8 @@
-import './App.css';
+import './Visitorpage.css';
 import React, { useState } from 'react';
+import { Link } from "react-router-dom"; 
 
-function App() {
+function Visitorpage() {
   const [visible, setVisibleSection] = useState('section1');
 
   const showSection = (section) => {
@@ -17,9 +18,14 @@ function App() {
   
   return (
     <div className="App">
+       <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+      <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
       <ul className="nav-headers">
-        <li className="nav-item"><b>Theme Park</b></li>
-        <li className="nav-item">Sign Out</li>
+        <li className="nav-item"><u>DB Theme Park</u></li>
+        <li className="nav-item" id='signout'>
+        <Link to="/">Sign Out</Link>
+          </li>
       </ul>
 
         <div className="welcome-back-visitor">
@@ -171,17 +177,13 @@ function App() {
 
                               <label for="Username">Card Number: </label>
                               <input id="UName" type="text" name="username1" value=""/>
-
-
-
                           </p>
                           <p>
                               <button id="update1submit" type="submit">Submit</button>
                           </p>
 
                       </form>
-                  </div>
-                  <br></br><br></br><br></br><br></br>
+                  
                   <h2>Previous Purchases</h2>
                   <table class = "PrevTicketPurch" id = "PrevTicket">
                   <tr>
@@ -200,7 +202,7 @@ function App() {
 
                  <p> You must show your customer ID before you can get into the park<br></br>This can be found in your account information.</p>
 
-
+                 </div>
               </div>
             </div>
 
@@ -287,4 +289,4 @@ function App() {
   );
 }
 
-export default App;
+export default Visitorpage;
