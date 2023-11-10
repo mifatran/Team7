@@ -1,7 +1,7 @@
-import './Main_pg.css';
+import './MainPg.css';
 import { Link } from "react-router-dom"; 
 
-function Main_pg() {
+function MainPg() {
   
   return (
     <div className='App'>
@@ -10,8 +10,11 @@ function Main_pg() {
       <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
       <ul className='headers'>
         <li className='header_item'><u>DB Theme Park</u></li>
+        <li className='header_item' id='business_analytics'> 
+          <Link to='/BusinessAnalyst'>Business Analytics</Link>
+        </li>
         <li className='header_item' id='sign_up'> 
-        <Link to='/Signup'>Sign up</Link>
+          <Link to='/Signup'>Sign up</Link>
         </li>
         <li className='header_item' id='sign_in'>
           <Link to='/Signin'>Sign in</Link>
@@ -93,4 +96,4 @@ function Main_pg() {
 
 );
 }
-export default Main_pg;
+export default MainPg;
