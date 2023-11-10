@@ -18,7 +18,7 @@ function Signup() {
         </li>
         <li className="nav-item-su">Contact</li>
       </ul>
-
+      <img src='https://townsquare.media/site/11/files/2022/02/attachment-grace-ho-zej4HPQLR5o-unsplash-e1643878973835.jpg' alt='Theme Park' className='img'></img>
       <div className="signup-body">
         <form className="signup-form">
           <h3>Sign up</h3>
