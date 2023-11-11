@@ -1,5 +1,6 @@
 import './BusinessAnalyst.css';
 import React, { useState } from 'react';
+import { Link } from "react-router-dom"; 
 
 function BusinessAnalyst() {
   const [visible, setVisibleSection] = useState('section1');
@@ -8,16 +9,20 @@ function BusinessAnalyst() {
     setVisibleSection(section);
   }
   
-  
   return (
     <div className="App">
+      <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+      <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
       <ul className="nav-headers">
-        <li className="nav-item"><b>Theme Park</b></li>
-        <li className="nav-item">Sign Out</li>
+        <li className="nav-item"><u>DB Theme Park</u></li>
+        <li className="nav-item" id='signout'>
+          <Link to='/'>Sign Out</Link>
+        </li>
       </ul>
 
-        <div className="Welcome-back-employee">
-          <strong>Welcome back, {"{"}BusinessAnalyst{"}"}!</strong>
+        <div className="welcome-back-employee">
+          Welcome back, {"{"}BusinessAnalyst{"}"}!
         </div>
         <div className="group">
           <div className="view">
