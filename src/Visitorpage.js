@@ -12,7 +12,7 @@ function Visitorpage() {
   
   
   return (
-    <div className="App">
+       <div className="App">
        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
       <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
@@ -26,6 +26,7 @@ function Visitorpage() {
         <div className="welcome-back-visitor">
           Welcome back, {"{"}Visitor name{"}"}!
         </div>
+
         <div className="group">
           <div className="view">
             <div className="mainbox">
@@ -73,30 +74,44 @@ function Visitorpage() {
                         <td>124324324324</td>
                       </tr>
                   </table>
-                  <p> Update the above information
+                  <p> Update the above information by inputing information below. If you don't wish to update something, leave it blank.
                   </p>
                   
-                    <div className="UpdateAccInfoSection">
-                      <form id="edit" method="POST" action="">
-                          <p>
-                              <label for="FirstName ">First Name:  </label>
-                              <input id="FName" type="text" name="username1" value=""/>
-                              <label for="LastName">Last Name: </label>
-                              <input id="LName" type="text" name="username1" value=""/>
-                              <label for="Username">Username: </label>
-                              <input id="UName" type="text" name="username1" value=""/>
-                              <label for="Email">Email: </label>
-                              <input id="Email" type="text" name="username1" value=""/>
-                              <label for="Address">Address: </label>
-                              <input id="Address" type="text" name="username1" value=""/>
-                              <label for="PaymentMethod">Payment Method: </label>
-                              <input id="PayMethod" type="text" name="username1" value=""/>
-                          </p>
-                          <p>
-                              <button id="update1submit" type="submit">Submit</button>
-                          </p>
+                    
+                      <form id="UpdateAccInfo" method="post" action="/submit">
+                              <div>
+                              <label for="FirstName ">First Name:</label>
+                              <input type="text" id="firstName" name="firstName"/>
+                              </div>
 
+                              <div>
+                              <label for="LastName">Last Name: </label>
+                              <input type="text" id="lastName" name="lastName"/>
+                              </div>
+
+                              <div>
+                              <label for="Username">Username: </label>
+                              <input type="text" id="Username" name="lastName"/>
+                              </div>
+
+                              <div>
+                              <label for="Email">Email: </label>
+                              <input type="text" id="Email" name="Email"/>
+                              </div>
+
+                              <div>
+                              <label for="Address">Address: </label>
+                              <input type="text" id="Address" name="Address"/>
+                              </div>
+
+                              <div>
+                              <label for="PaymentMethod">Payment Card: </label>
+                              <input type="text" id="Payment" name="Payment"/>
+                              </div>
+                              <button id="UpdateAccInfoButton" type="submit">Submit</button>
+                          
                       </form>
+
                       <h2> Security Information
                        </h2>
                        <table>
@@ -107,21 +122,22 @@ function Visitorpage() {
                         <td>Jane234324</td>
                       </tr>
                       </table>
+
                   <p> Do you want to change your password?</p>
-                  <div className="UpdateAccPasSection">
-                      <form id="edit" method="POST" action="">
+                  
+                      <form id="UpdateAccPas" method="post" action="/submit">
                           <p>
                               <label for="Password ">New Password:  </label>
-                              <input id="Password" type="text" name="username1" value=""/>
+                              <input type="text" id="Password" name="Password" required/>
   
                           </p>
                           <p>
-                              <button id="update1submit" type="submit">Submit</button>
+                              <button id="UpdateAccPasButton" type="submit">Submit</button>
                           </p>
 
                       </form>
                    </div>
-                   </div>
+                   
                   </div>
               </div>
             </div>
@@ -158,24 +174,57 @@ function Visitorpage() {
                       </tr>
                 </table>
                 <p>Complete the section below to get your tickets</p>
-                <div className="PurchTicketSection">
-                      <form id="edit" method="POST" action="">
-                          <p>
+                
+                      <form id="PurchTicket" method="post" action="/submit">
+                              <div>
                               <label for="FirstName ">First Name:  </label>
-                              <input id="FName" type="text" name="username1" value=""/>
-                              <label for="LastName">Last Name: </label>
-                              <input id="LName" type="text" name="username1" value=""/>
-                              <label for="Address">Address: </label>
-                              <input id="Address" type="text" name="username1" value=""/>
-                              <label for="Email">Account Password: </label>
-                              <input id="Email" type="text" name="username1" value=""/>
+                              <input type="text" id="FirstName" name="FirstName" required/>
+                              </div>
 
-                              <label for="Username">Card Number: </label>
-                              <input id="UName" type="text" name="username1" value=""/>
-                          </p>
-                          <p>
-                              <button id="update1submit" type="submit">Submit</button>
-                          </p>
+                              <div>
+                              <label for="LastName">Last Name: </label>
+                              <input type="text" id="LastName" name="LastName" required/>
+                              </div>
+                              
+                              <div>
+                              <label for="Username">Ticket Type: </label>
+                              <select id = "TicketsOptions" name="Tickets" required>
+                                  <option value = "DayPass"> Day Pass </option>
+                                  <option value = "SeasonalPass"> Seasonal Pass </option>
+                                  <option value = "AnnualPass"> Annual Pass </option>
+                                  <option value = "Premium Pass"> Premium Pass </option>
+
+                              </select>
+                        
+                              </div>
+                
+                              <div>
+                              <label for="Amount">Amount: </label>
+                              <input type="number" id="Amount" name="Amount" min="1" max="100" required/>
+                              </div>
+
+                              <div>
+                              <label for="Address">Address: </label>
+                              <input type="text" id="Address" name="Address" required/>
+                              </div>
+
+                              <div>
+                              <label for="ZipCode">Zip Code: </label>
+                              <input type="text" id="ZipCode" name="ZipCode" required/>
+                              </div>
+
+                              <div>
+                              <label for="Country">Country: </label>
+                              <input type="text" id="Country" name="Country" required/>
+                              </div>
+
+                              <div>
+                              <label for="Card Info">Card Number: </label>
+                              <input type="text" id="CardInfo" name="CardInfo" />
+                              </div>
+
+                              <button id="PurchTicketButton" type="submit">Submit</button>
+                         
 
                       </form>
                   
@@ -183,16 +232,25 @@ function Visitorpage() {
                   <table class = "PrevTicketPurch" id = "PrevTicket">
                   <tr>
                     <th>Date:</th>
-                    <td></td>
-                  </tr>
-                  <tr>
                     <th>Type:</th>
+                    <th>Amount:</th>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
                     <td></td>
                   </tr>
                   <tr>
-                    <th>Amount:</th>
+                    <td></td>
+                    <td></td>
                     <td></td>
                   </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+
                  </table>
 
                  <p> You must show your customer ID before you can get into the park<br></br>This can be found in your account information.</p>
@@ -271,17 +329,14 @@ function Visitorpage() {
               </div>
             </div>
             </div>
+
+
           </div>
-        </div>
-      
+        
 
 
-</div>
-
-   
-
-    
   );
 }
+
 
 export default Visitorpage;
