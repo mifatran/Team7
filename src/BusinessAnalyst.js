@@ -1,6 +1,5 @@
 import './BusinessAnalyst.css';
 import React, { useState } from 'react';
-import { Link } from "react-router-dom"; 
 
 function BusinessAnalyst() {
   const [visible, setVisibleSection] = useState('section1');
@@ -9,20 +8,18 @@ function BusinessAnalyst() {
     setVisibleSection(section);
   }
   
+  
   return (
     <div className="App">
-      <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
-      <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Josefin+Sans&family=Mitr:wght@200&display=swap" rel="stylesheet"></link>
       <ul className="nav-headers">
-        <li className="nav-item"><u>DB Theme Park</u></li>
-        <li className="nav-item" id='signout'>
-          <Link to='/'>Sign Out</Link>
-        </li>
+        <li className="nav-item"><b>Theme Park</b></li>
+        <li className="nav-item">Sign Out</li>
       </ul>
 
-        <div className="welcome-back-employee">
-          Welcome back, {"{"}BusinessAnalyst{"}"}!
+        <div className="Welcome-back-employee">
+        
+
+          <strong>Welcome back, {"{"}BusinessAnalyst{"}"}!</strong>
         </div>
         <div className="group">
           <div className="view">
@@ -40,9 +37,7 @@ function BusinessAnalyst() {
               <button className="ParkInfoButton"onClick={() => showSection('section3')}>
                 View Report
               </button>
-              <button className="DeleteButton" onClick={() => showSection('section4')}>
-              Delete Account
-              </button>
+
             
             </div>
             <div className="Menutxt">Menu</div>
@@ -82,41 +77,30 @@ function BusinessAnalyst() {
                   </p>
                   
                     <div className="Shopdatainfo">
-                      <form id="edit" method="POST" action="">
-                          <p>
+                      <form id="Shopdatainfo" method="POST" action="/submit">
+                          
+                              <div>
                               <label for="Shop id ">Shop ID #:  </label>
-                              <input id="Shopid" type="text" name="username1" value=""/>
-                  
-                          </p>
-                          <p>
-                              <button id="update1submit" type="submit">Submit</button>
-                          </p>
+                              <input type="text" id="id" name="id"/>
+                              </div>
+                          
+                          
+                              <button id="Shopdatainfobutton" type="submit">Submit</button>
+                          
 
                       </form>
                       <h2> Security Information
-                       </h2>
-                       <table>
-                      <tr>
-                        <th>Employee ID: </th>
-                      </tr>
-                      <tr>
-                        <td>######</td>
-                      </tr>
-                      </table>
-                  <p> Forgot employee id #?</p>
+                      </h2>
+                  <p> Need to input employee id in order to access Shopdata.</p>
                   <div className="UpdateAccPasSection">
-                      <form id="edit" method="POST" action="">
-                          <p>
-                          <label for="Password ">Employee Username:  </label>
-                              <input id="Password" type="text" name="username1" value=""/>
-  
-                              <label for="Password ">Employee Password:  </label>
-                              <input id="Password" type="text" name="username1" value=""/>
-  
-                          </p>
-                          <p>
+                      <form id="edit" method="POST" action="/submit">
+                          <div>
+                          <label for="Employeeid">Employee ID:  </label>
+                              <input type="text" id="Username" name="LastName"/>
+                           </div>
+                          
                               <button id="update1submit" type="submit">Submit</button>
-                          </p>
+                          
 
                       </form>
                    </div>
@@ -187,23 +171,28 @@ function BusinessAnalyst() {
                       </tr>
                 </table>
                 <p>Complete the section below to a specfic ride data</p>
-                <div className="Rideinfo">
-                      <form id="edit" method="POST" action="">
-                          <p>
-                              <label for="Rideid ">Ride_id #:  </label>
-                              <input id="Rid" type="text" name="username1" value=""/>
-                              <label for="Employeeid">Employee id #: </label>
-                              <input id="Eid" type="text" name="username1" value=""/>
-                         
-   
+                <div className="Rideinfo">                  
+                      <form id="edit" method="POST" action="/submit">
 
-
-                          </p>
-                          <p>
-                              <button id="update1submit" type="submit">Submit</button>
-                          </p>
+                          
+                          <div>
+                          <label for="Employeeid">Employee ID:  </label>
+                          <input type="text" id="Username" name="LastName"/>
+                           </div>
+              
+                           <div>
+                          <label for="Ride Id">Ride ID:  </label>
+                          <input type="text" id="Username" name="LastName"/>
+                           </div>
+                    
+                        <button id="update1submit" type="submit">Submit</button>
+                          
 
                       </form>
+
+
+                  </div>
+ 
                   </div>
                   <br></br><br></br><br></br><br></br>
        
@@ -214,7 +203,7 @@ function BusinessAnalyst() {
                   </p>
 
 
-              </div>
+              
             </div>
 
             <div style={{ display: visible === 'section3' ? 'block' : 'none' }}>
@@ -276,16 +265,7 @@ function BusinessAnalyst() {
               </div>
             </div>
 
-            <div style={{ display: visible === 'section4' ? 'block' : 'none' }}>
-              <div className="optiontextbox">
-                <h2>Are you sure you want to delete your account?</h2>
-                <p> Deleting your account will mean that you'll know longer have access to it and your information will be deleted. Are you ok with that?</p>
-                <button className="DeleteAccButtonConfirm"onClick={() => showSection('section5')}>
-                Yes, that's ok.
-              </button>
 
-              </div>
-            </div>
             </div>
           </div>
         </div>
