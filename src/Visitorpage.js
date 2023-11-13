@@ -62,7 +62,7 @@ function Visitorpage() {
                         <th>Last Name </th>
                         <th>Username </th>
                         <th>Email </th>
-                        <th>Adress </th>
+                        <th>Address </th>
                         <th>Payment Method </th>
                       </tr>
                       <tr>
