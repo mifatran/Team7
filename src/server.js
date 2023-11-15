@@ -13,7 +13,7 @@ const sql = require('mssql');
     }
 ;
 const server = http.createServer(async (req, res) => {
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/event' && req.method === 'GET') {
+    if (req.url === '/api/event' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -33,7 +33,7 @@ const server = http.createServer(async (req, res) => {
         await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/ticket' && req.method === 'GET') {
+    if (req.url === '/api/ticket' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -53,7 +53,7 @@ const server = http.createServer(async (req, res) => {
         // await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/ride1' && req.method === 'GET') {
+    if (req.url === '/api/ride1' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -73,7 +73,7 @@ const server = http.createServer(async (req, res) => {
         // await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/stall1' && req.method === 'GET') {
+    if (req.url === '/api/stall1' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -93,7 +93,7 @@ const server = http.createServer(async (req, res) => {
         // await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/shop1' && req.method === 'GET') {
+    if (req.url === '/api/shop1' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -113,7 +113,7 @@ const server = http.createServer(async (req, res) => {
         await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/service1' && req.method === 'GET') {
+    if (req.url === '/api/service1' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -134,7 +134,7 @@ const server = http.createServer(async (req, res) => {
       }
     }
 
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/ride2' && req.method === 'GET') {
+    if (req.url === '/api/ride2' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -154,7 +154,7 @@ const server = http.createServer(async (req, res) => {
         //await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/stall2' && req.method === 'GET') {
+    if (req.url === '/api/stall2' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -174,7 +174,7 @@ const server = http.createServer(async (req, res) => {
         //await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/shop2' && req.method === 'GET') {
+    if (req.url === '/api/shop2' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -194,7 +194,7 @@ const server = http.createServer(async (req, res) => {
         //await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/service2' && req.method === 'GET') {
+    if (req.url === '/api/service2' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -215,7 +215,7 @@ const server = http.createServer(async (req, res) => {
       }
     }
 
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/ride3' && req.method === 'GET') {
+    if (req.url === '/api/ride3' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -235,7 +235,7 @@ const server = http.createServer(async (req, res) => {
         //await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/stall3' && req.method === 'GET') {
+    if (req.url === '/api/stall3' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -255,7 +255,7 @@ const server = http.createServer(async (req, res) => {
         //await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/shop3' && req.method === 'GET') {
+    if (req.url === '/api/shop3' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -275,7 +275,7 @@ const server = http.createServer(async (req, res) => {
         //await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/service3' && req.method === 'GET') {
+    if (req.url === '/api/service3' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -296,7 +296,7 @@ const server = http.createServer(async (req, res) => {
       }
     }
 
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/ride4' && req.method === 'GET') {
+    if (req.url === '/api/ride4' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -316,7 +316,7 @@ const server = http.createServer(async (req, res) => {
         //await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/stall4' && req.method === 'GET') {
+    if (req.url === '/api/stall4' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -336,7 +336,7 @@ const server = http.createServer(async (req, res) => {
         //await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/shop4' && req.method === 'GET') {
+    if (req.url === '/api/shop4' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
@@ -356,7 +356,7 @@ const server = http.createServer(async (req, res) => {
         //await sql.close();
       }
     }
-    if (req.url === 'https://themeparkwebapp2023.azurewebsites.net/api/service4' && req.method === 'GET') {
+    if (req.url === '/api/service4' && req.method === 'GET') {
       try {
         // Connect to the database
         await sql.connect(config);
