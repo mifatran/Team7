@@ -8,6 +8,7 @@ const sql = require('mssql');
         database: '2023Team7AmuseParkDB', 
         options: {
             encrypt: true
+            connectTimeout: 30000,
         }
     }
 ;
