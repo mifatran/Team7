@@ -50,7 +50,7 @@ const server = http.createServer(async (req, res) => {
         return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        // await sql.close();
       }
     }
     if (req.url === '/api/ride1' && req.method === 'GET') {
@@ -70,7 +70,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        // await sql.close();
       }
     }
     if (req.url === '/api/stall1' && req.method === 'GET') {
@@ -90,7 +90,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        // await sql.close();
       }
     }
     if (req.url === '/api/shop1' && req.method === 'GET') {
@@ -130,7 +130,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        //await sql.close();
       }
     }
 
@@ -151,7 +151,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        //await sql.close();
       }
     }
     if (req.url === '/api/stall2' && req.method === 'GET') {
@@ -171,7 +171,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        //await sql.close();
       }
     }
     if (req.url === '/api/shop2' && req.method === 'GET') {
@@ -191,7 +191,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        //await sql.close();
       }
     }
     if (req.url === '/api/service2' && req.method === 'GET') {
@@ -211,7 +211,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        //await sql.close();
       }
     }
 
@@ -232,7 +232,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        //await sql.close();
       }
     }
     if (req.url === '/api/stall3' && req.method === 'GET') {
@@ -252,7 +252,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        //await sql.close();
       }
     }
     if (req.url === '/api/shop3' && req.method === 'GET') {
@@ -272,7 +272,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        //await sql.close();
       }
     }
     if (req.url === '/api/service3' && req.method === 'GET') {
@@ -292,7 +292,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        //await sql.close();
       }
     }
 
@@ -313,7 +313,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        //await sql.close();
       }
     }
     if (req.url === '/api/stall4' && req.method === 'GET') {
@@ -333,7 +333,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        //await sql.close();
       }
     }
     if (req.url === '/api/shop4' && req.method === 'GET') {
@@ -353,7 +353,7 @@ const server = http.createServer(async (req, res) => {
          return res.end('Internal Server Error');
       } finally {
         // Close the database connection
-        await sql.close();
+        //await sql.close();
       }
     }
     if (req.url === '/api/service4' && req.method === 'GET') {
