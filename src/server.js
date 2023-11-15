@@ -7,7 +7,7 @@ const sql = require('mssql');
         server: '2023amuseparkdb.database.windows.net', 
         database: '2023Team7AmuseParkDB', 
         options: {
-            encrypt: true
+            encrypt: true,
             connectTimeout: 30000,
         }
     }
