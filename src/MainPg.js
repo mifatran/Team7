@@ -12,7 +12,7 @@ function MainPg() {
   const[EventData, setEventData] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/event')
+    fetch('/api/event')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -26,7 +26,7 @@ function MainPg() {
   const[TicketData, setTicketData] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/ticket')
+    fetch('/api/ticket')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -40,7 +40,7 @@ function MainPg() {
   const[Ride1Data, setRide1Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/ride1')
+    fetch('/api/ride1')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -53,7 +53,7 @@ function MainPg() {
   const[Stall1Data, setStall1Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/stall1')
+    fetch('/api/stall1')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -66,7 +66,7 @@ function MainPg() {
   const[Shop1Data, setShop1Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/shop1')
+    fetch('/api/shop1')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -79,7 +79,7 @@ function MainPg() {
   const[Service1Data, setService1Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/service1')
+    fetch('/api/service1')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -93,7 +93,7 @@ function MainPg() {
   const[Ride2Data, setRide2Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/ride2')
+    fetch('/api/ride2')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -106,7 +106,7 @@ function MainPg() {
   const[Stall2Data, setStall2Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/stall2')
+    fetch('/api/stall2')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -119,7 +119,7 @@ function MainPg() {
   const[Shop2Data, setShop2Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/shop2')
+    fetch('/api/shop2')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -132,7 +132,7 @@ function MainPg() {
   const[Service2Data, setService2Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/service2')
+    fetch('/api/service2')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -146,7 +146,7 @@ function MainPg() {
   const[Ride3Data, setRide3Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/ride3')
+    fetch('/api/ride3')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -159,7 +159,7 @@ function MainPg() {
   const[Stall3Data, setStall3Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/stall3')
+    fetch('/api/stall3')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -172,7 +172,7 @@ function MainPg() {
   const[Shop3Data, setShop3Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/shop3')
+    fetch('/api/shop3')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -185,7 +185,7 @@ function MainPg() {
   const[Service3Data, setService3Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/service3')
+    fetch('/api/service3')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -199,7 +199,7 @@ function MainPg() {
   const[Ride4Data, setRide4Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/ride4')
+    fetch('/api/ride4')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -212,7 +212,7 @@ function MainPg() {
   const[Stall4Data, setStall4Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/stall4')
+    fetch('/api/stall4')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -225,7 +225,7 @@ function MainPg() {
   const[Shop4Data, setShop4Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/shop4')
+    fetch('/api/shop4')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -238,7 +238,7 @@ function MainPg() {
   const[Service4Data, setService4Data] = useState([]);
   useEffect(() => {
     
-    fetch('https://themeparkwebapp2023.azurewebsites.net/api/service4')
+    fetch('/api/service4')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
