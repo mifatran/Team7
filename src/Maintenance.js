@@ -13,7 +13,7 @@ function Maintenance() {
   const[RideData, setRideData] = useState([]);
   useEffect(() => {
     
-    fetch('/api/ride')
+    fetch('/api/rideinfo')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -79,6 +79,89 @@ function Maintenance() {
       .then((data) => setIssueLogData(data))
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
+
+  const handleupdateemppass = async (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+  
+    try {
+      const response = await fetch('/api/updateemppass', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      console.log(result); 
+      form.reset();
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+
+  const handleupdateempwage = async (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+  
+    try {
+      const response = await fetch('/api/updateempwage', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      console.log(result); 
+      form.reset();
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+  const handleupdateridestat = async (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+  
+    try {
+      const response = await fetch('/api/updateridestat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      console.log(result); 
+      form.reset();
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
   
   
   return (
@@ -121,6 +204,8 @@ function Maintenance() {
             
             </div>
             <div className="Menutxt">Menu</div>
+
+
             
 
             <div style={{ display: visible === 'section1' ? 'block' : 'none' }}>
@@ -137,6 +222,7 @@ function Maintenance() {
                         <th>First Name </th>
                         <th>Last Name </th>
                         <th>Username </th>
+                        <th>Password </th>
                         <th>Email </th>
                         <th>Address </th>
                       </tr>
@@ -147,6 +233,7 @@ function Maintenance() {
                         <td>{employee.first_name}</td>
                         <td>{employee.last_name}</td>
                         <td>{employee.user_tag}</td>
+                        <td>{employee.user_pass}</td>
                         <td>{employee.email}</td>
                         <td>{employee.home_address}</td>
                         </tr>
@@ -156,29 +243,20 @@ function Maintenance() {
                   
                       <h2> Security Information
                        </h2>
-                       <table>
-                      <thead>
-                      <tr>
-                        <th>Current Password </th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      {StaffData.map((employee) => (
-                        <tr key={employee.id}>
-                        <td>{employee.user_pass}</td>
-                        </tr>
-                      ))}
-                      </tbody>
-                      </table>
 
-
-                  <p> Do you want to change your password?</p>
+                  <p><b>Do you want to change your password?</b></p>
                   <p><b> You must have a permit code from your supervisor for change security information!</b></p>
                   
-                      <form id="UpdateAccPas" method="post" action="/submit">
+                      <form id="UpdateAccPas" onSubmit={handleupdateemppass} method="post" action="/submit">
                           <p>
+                              <label for="CurrentPassword ">Current Password:  </label>
+                              <input type="text" id="CurrentPassword" name="CurrentPassword" min="6" max="20" required/>
+
                               <label for="Password ">New Password:  </label>
-                              <input type="text" id="Password" name="Password" required/>
+                              <input type="text" id="Password" name="Password" min="6" max="20" required/>
+                              
+                              <label for="PermitCode ">Permit Code:  </label>
+                              <input type="int" id="PermitCode" name="PermitCode" min="4" max="4" required/>
   
                           </p>
                           <p>
@@ -202,13 +280,18 @@ function Maintenance() {
                       ))}
                       </tbody>
                       </table>
-                      <p>You can not change your hourly wage!</p>
+                      <p><b>You can not change your hourly wage!</b></p>
                       <p><b>Only department supervisor having permit code for change security information!</b></p>
-                      <form id="UpdateAccWage" method="post" action="/submit">
-                          <p>
-                              <label for="hourly_pay ">Update Hourly Wage:  </label>
-                              <input type="text" id="hourly_pay" name="hourly_pay" required/>
-  
+                      <form id="Updateempwage" onSubmit={handleupdateempwage} method="post" action="/submit">
+                          <p> 
+                            <label for="CurrentPassword ">Current Password:  </label>
+                              <input type="text" id="CurrentPassword" name="CurrentPassword" min="6" max="20" required/>
+
+                              <label for="Wage ">Update Hourly Wage:  </label>
+                              <input type="int" id="Wage" name="Wage" min="1" max="2" required/>
+
+                              <label for="PermitCode ">Permit Code:  </label>
+                              <input type="int" id="PermitCode" name="PermitCode" min="4" max="4" required/>
                           </p>
                           <p>
                               <button id="UpdateAccButton" type="submit">Submit</button>
@@ -260,7 +343,25 @@ function Maintenance() {
               </div>
               <div style={{ display: visible === 'section3' ? 'block' : 'none' }}>
                 <div className="optiontextbox">
+                <h2>Change Operation Status</h2>
+                <form id="Updateridestat" onSubmit={handleupdateridestat} method="post" action="/submit">
+                          <p> 
+                            <label for="RideID ">Ride ID:  </label>
+                            <input type="text" id="RideID" name="RideID" min="8" max="8" required/>
+
+                            <label for="Status">Operation Status: </label>
+                            <select id = "Status" name="Status" required>
+                              <option value = "Active"> Active </option>
+                              <option value = "Inactive"> Inactive </option>
+                            </select>
+                          </p>
+                          <p>
+                              <button id="UpdateAccButton" type="submit">Submit</button>
+                          </p>
+
+                      </form>
                   <h2>Ride Information</h2>
+                  
                   <table>
                       <thead>
                       <tr>
@@ -342,7 +443,15 @@ function Maintenance() {
 
               </div>
             </div>
+
+
+
+            
+        
+
+
   );
 }
+
 
 export default Maintenance;
