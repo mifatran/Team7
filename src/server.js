@@ -528,7 +528,109 @@ const server = http.createServer(async (req, res) => {
       await sql.close();
       }
     }
-    
+    if (req.url === '/api/maintenancestaff' && req.method === 'GET') {
+      try {
+      await sql.connect(config);
+
+        const result = await sql.query("SELECT * FROM employee WHERE employee_id = 'EmpM0001'");
+
+         res.writeHead(200, { 'Content-Type': 'application/json' });
+         return res.end(JSON.stringify(result.recordset));
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+         res.writeHead(500, { 'Content-Type': 'text/plain' });
+         return res.end('Internal Server Error');
+      } finally {
+      await sql.close();
+      }
+    }
+    if (req.url=== '/api/updateemppass' && req.method === 'POST') {
+      let body = '';
+      req.on('data', (chunk) => {
+        body += chunk;
+      });
+      req.on('end', async () => {
+        try {
+          await sql.connect(config);
+          const { CurrentPassword, Password, PermitCode } = JSON.parse(body);
+          await sql.query(`
+            UPDATE employee
+            SET user_pass = '${Password}'
+            WHERE user_pass = '${CurrentPassword}' AND Supervisor_code = ${PermitCode};
+          `);
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          return res.end(JSON.stringify({ success: true, message: 'Updated Password successfuly!' }));
+        } catch (error) {
+          console.error('Error processing:', error.message);
+          res.writeHead(500, { 'Content-Type': 'application/json' });
+          return res.end(JSON.stringify({ success: false, message: 'Internal Server Error' }));
+        } finally {
+          await sql.close();
+        }
+      });
+    }
+    if (req.url=== '/api/updateempwage' && req.method === 'POST') {
+      let body = '';
+      req.on('data', (chunk) => {
+        body += chunk;
+      });
+      req.on('end', async () => {
+        try {
+          await sql.connect(config);
+          const { CurrentPassword, Wage, PermitCode } = JSON.parse(body);
+          await sql.query(`
+            UPDATE employee
+            SET hourly_pay = '${Wage}'
+            WHERE user_pass = '${CurrentPassword}' AND Supervisor_code = ${PermitCode};
+          `);
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          return res.end(JSON.stringify({ success: true, message: 'Updated Hourly Pay successfully!' }));
+        } catch (error) {
+          console.error('Error processing:', error.message);
+          res.writeHead(500, { 'Content-Type': 'application/json' });
+          return res.end(JSON.stringify({ success: false, message: 'Internal Server Error' }));
+        } finally {
+          await sql.close();
+        }
+      });
+    }
+    if (req.url=== '/api/updateridestat' && req.method === 'POST') {
+      let body = '';
+      req.on('data', (chunk) => {
+        body += chunk;
+      });
+      req.on('end', async () => {
+        try {
+          await sql.connect(config);
+          const { RideID, Status } = JSON.parse(body);
+          const setStat = (Status) => {
+            let Stat = '';
+            switch(Status){
+              case 'Active':
+              break;
+              case 'Inactive':
+                Stat = 'Inactive';
+              break;
+            }
+            return Stat;
+          }
+          const Stat = setStat(Status);
+          await sql.query(`
+            UPDATE ride_info
+            SET OperationStatus = '${Stat}'
+            WHERE RideID = '${RideID}';
+          `);
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ success: true, message: 'Updated Status successfully' }));
+        } catch (error) {
+          console.error('Error processing:', error.message);
+          res.writeHead(500, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ success: false, message: 'Internal Server Error' }));
+        } finally {
+          await sql.close();
+        }
+      });
+    }
     
 
     else {
