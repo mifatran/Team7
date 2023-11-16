@@ -344,26 +344,7 @@ function Visitorpage() {
 
                     </tbody>
                 </table>
-                <br></br>
-                <h3>Services Information</h3>
-                <table class = "Services" id = "ServiceInfo">
-                       <tr>
-                        <th>Service </th>
-                        <th>Location </th>
-                        <th>Phone Number </th>
-                        <th>Email </th>
-                        <th>Location </th>
-                      </tr>
-                      <tr>
-                        <td>The placeholdinator</td>
-                        <td>placeholdinatorazone</td>
-                        <td>I have no idea this is a placeholder</td>
-                        <td>I have no idea this is a placeholder</td>
-                        <td>The placeholdinator</td>
 
-                      </tr>
-                 </table>
-                  <br></br>
                  <h3>More Information</h3>
                  <p> Parking is included with the purchase of ticket(s). <br>
                  </br>Tickets are required to enter the park. One ticket allows entry for one visitor. <br></br> </p>
