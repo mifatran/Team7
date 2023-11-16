@@ -376,7 +376,92 @@ const server = http.createServer(async (req, res) => {
         await sql.close();
       }
     }
+ if (req.url === '/api/ride' && req.method === 'GET') {
+      try {
 
+        await sql.connect(config);
+   
+      
+        const result = await sql.query("\
+        SELECT ride_info.RideName, ride_info.Description \
+        FROM ride_info \
+        WHERE ride_info.Accessibility_Attraction = 'Available'\
+      ");
+
+       const resultTest = await sql.query("SELECT ride_info.RideName AS InactiveRide, ride_info.Description AS InactiveDescript\
+       FROM ride_info \
+       WHERE ride_info.OperationStatus = 'Inactive'\ ");
+
+       
+       const responseData = {
+        RideData: result.recordset,
+        InactiveRides: resultTest.recordset,
+      };
+
+  
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(responseData));
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        res.end('Internal Server Error');
+      } finally {
+     
+        await sql.close();
+      }
+    
+  }else if (req.url=== '/api/purchaseTicket' && req.method === 'POST') {
+    let body = '';
+
+    req.on('data', (chunk) => {
+      body += chunk;
+    });
+
+    req.on('end', async () => {
+      try {
+        await sql.connect(config);
+
+        const { TicketsTypes, Amount, FirstName, LastName, Address, CardInfo } = JSON.parse(body);
+
+        const calcPrice = (TicketsTypes, Amount) => {
+          let Price = 0;
+
+          switch(TicketsTypes){
+            case 'DayPass':
+              Price = Amount * 33;
+            break;
+            case 'Seasonal Pass':
+              Price = Amount * 61;
+            break;
+            case 'Annual Pass':
+              Price = Amount * 151;
+            break;
+            case 'Premium Pass':
+              Price = Amount * 351;
+            break;
+          }
+          return Price;
+        }
+        const Price = calcPrice(TicketsTypes, Amount);
+
+        await sql.query(`
+          INSERT INTO PurchasedTickets(TicketID, Date, TicketType, Cardnum, Firstname, LastName, Amount, Address, Price)
+          VALUES
+          (CONCAT('Tick', SUBSTRING(CONVERT(VARCHAR(255), NEWID()), 1, 4)),
+          GETDATE(),
+          '${TicketsTypes}', ${CardInfo}, '${FirstName}', '${LastName}', ${Amount}, '${Address}', ${Price});
+        `);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: true, message: 'Ticket purchase successful' }));
+      } catch (error) {
+        console.error('Error processing ticket purchase:', error.message);
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, message: 'Internal Server Error' }));
+      } finally {
+        await sql.close();
+      }
+    });
     else {
       // Handle other routes or requests
        res.writeHead(404, { 'Content-Type': 'text/plain' });
