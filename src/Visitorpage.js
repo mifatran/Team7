@@ -1,16 +1,88 @@
 import './Visitorpage.css';
-import React, { useState } from 'react';
-import { Link } from "react-router-dom"; 
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 
 function Visitorpage() {
   const [visible, setVisibleSection] = useState('section1');
 
   const showSection = (section) => {
     setVisibleSection(section);
-  }
+  };
+
+  const[RideData, setRideData] = useState([]);
+  const [InactiveRides, setInactiveRides] = useState([]);
+  useEffect(() => {
+    
+    fetch('/api/ride')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setRideData(data.RideData);
+        setInactiveRides(data.InactiveRides);
+      })
+      .catch((error) => console.error('Error fetching data:', error));
+  }, []);
   
+  const handlePurchaseTicket = async (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
   
+    try {
+      const response = await fetch('/api/purchaseTicket', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
   
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      console.log(result); 
+      form.reset();
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+
+  const AccountDelete = async (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+  
+    try {
+      const response = await fetch('/api/AccountDelete', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      console.log(result); 
+      form.reset();
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
   return (
        <div className="App">
        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
@@ -26,7 +98,8 @@ function Visitorpage() {
         <div className="welcome-back-visitor">
           Welcome back, {"{"}Visitor name{"}"}!
         </div>
-
+        
+    
         <div className="group">
           <div className="view">
             <div className="mainbox">
@@ -62,7 +135,7 @@ function Visitorpage() {
                         <th>Last Name </th>
                         <th>Username </th>
                         <th>Email </th>
-                        <th>Address </th>
+                        <th>Adress </th>
                         <th>Payment Method </th>
                       </tr>
                       <tr>
@@ -91,7 +164,7 @@ function Visitorpage() {
 
                               <div>
                               <label for="Username">Username: </label>
-                              <input type="text" id="Username" name="lastName"/>
+                              <input type="text" id="Username" name="lastName" required/>
                               </div>
 
                               <div>
@@ -175,20 +248,10 @@ function Visitorpage() {
                 </table>
                 <p>Complete the section below to get your tickets</p>
                 
-                      <form id="PurchTicket" method="post" action="/submit">
-                              <div>
-                              <label for="FirstName ">First Name:  </label>
-                              <input type="text" id="FirstName" name="FirstName" required/>
-                              </div>
-
-                              <div>
-                              <label for="LastName">Last Name: </label>
-                              <input type="text" id="LastName" name="LastName" required/>
-                              </div>
-                              
-                              <div>
-                              <label for="Username">Ticket Type: </label>
-                              <select id = "TicketsOptions" name="Tickets" required>
+                      <form id="PurchTicket" onSubmit={handlePurchaseTicket} method="post" action="/submit">
+                             <div>
+                              <label for="TicketsTypes">Ticket Type: </label>
+                              <select id = "TicketsTypes" name="TicketsTypes" required>
                                   <option value = "DayPass"> Day Pass </option>
                                   <option value = "SeasonalPass"> Seasonal Pass </option>
                                   <option value = "AnnualPass"> Annual Pass </option>
@@ -203,58 +266,32 @@ function Visitorpage() {
                               <input type="number" id="Amount" name="Amount" min="1" max="100" required/>
                               </div>
 
+
                               <div>
-                              <label for="Address">Address: </label>
-                              <input type="text" id="Address" name="Address" required/>
+                              <label for="FirstName ">First Name:  </label>
+                              <input type="text" id="FirstName" name="FirstName" required/>
                               </div>
 
                               <div>
-                              <label for="ZipCode">Zip Code: </label>
-                              <input type="text" id="ZipCode" name="ZipCode" required/>
+                              <label for="LastName">Last Name: </label>
+                              <input type="text" id="LastName" name="LastName" required/>
                               </div>
 
                               <div>
-                              <label for="Country">Country: </label>
-                              <input type="text" id="Country" name="Country" required/>
+                              <label for="Address">Address (Zipcode): </label>
+                              <input type="text" id="Address" name="Address" pattern="[0-9]{5}" required/>
                               </div>
 
                               <div>
                               <label for="Card Info">Card Number: </label>
-                              <input type="text" id="CardInfo" name="CardInfo" />
+                              <input type="text" id="CardInfo" name="CardInfo" pattern="[0-9]{16}" required/>
                               </div>
 
                               <button id="PurchTicketButton" type="submit">Submit</button>
                          
 
                       </form>
-                  
-                  <h2>Previous Purchases</h2>
-                  <table class = "PrevTicketPurch" id = "PrevTicket">
-                  <tr>
-                    <th>Date:</th>
-                    <th>Type:</th>
-                    <th>Amount:</th>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-
-                 </table>
-
-                 <p> You must show your customer ID before you can get into the park<br></br>This can be found in your account information.</p>
-
+              
                  </div>
               </div>
             </div>
@@ -267,30 +304,46 @@ function Visitorpage() {
 
                 <h3>Rides With Accessability Services</h3>
                 <table>
+                    <thead>
                       <tr>
-                        <th>Ride Names </th>
-                        <th>Zone Area </th>
+                        <th>Ride Name </th>
+                        <th>Ride Description </th>
+                      </tr>
+                    </thead>
 
-                      </tr>
-                      <tr>
-                        <td>The placeholdinator</td>
-                        <td>placeholdinatorazone</td>
-                      </tr>
+                    <tbody>
+                      {RideData.map((ride_info) => (
+                        <tr key={ride_info.id}>
+                          <td>{ride_info.RideName}</td>
+                          <td>{ride_info.Description}</td>
+                          {/* Add more cells as needed */}
+                        </tr>
+                      ))}
+
+                    </tbody>
                 </table>
                 <br></br>
+
                 <h3>Unavailable Rides</h3>
                 <table>
+                    <thead>
                       <tr>
-                        <th>Ride Names </th>
-                        <th>Zone Area </th>
-
+                        <th>Ride Name </th>
+                        <th>Ride Description </th>
                       </tr>
-                      <tr>
-                        <td>The placeholdinator</td>
-                        <td>placeholdinatorazone</td>
+                    </thead>
 
-                      </tr>
-                  </table>
+                    <tbody>
+                      {InactiveRides.map((ride_info) => (
+                        <tr key={ride_info.id}>
+                          <td>{ride_info.InactiveRide}</td>
+                          <td>{ride_info.InactiveDescript}</td>
+                          {/* Add more cells as needed */}
+                        </tr>
+                      ))}
+
+                    </tbody>
+                </table>
                 <br></br>
                 <h3>Services Information</h3>
                 <table class = "Services" id = "ServiceInfo">
@@ -322,10 +375,40 @@ function Visitorpage() {
               <div className="optiontextbox">
                 <h2>Are you sure you want to delete your account?</h2>
                 <p> Deleting your account will mean that you'll know longer have access to it and your information will be deleted. Are you ok with that?</p>
-                <button className="DeleteAccButtonConfirm"onClick={() => showSection('section5')}>
-                Yes, that's ok.
-              </button>
+              <form id="AccountDelete" onSubmit={AccountDelete} method="post" action="/submit">
+                              <div>
+                              <label for="FirstName ">First Name:</label>
+                              <input type="text" id="firstName" name="firstName"/>
+                              </div>
 
+                              <div>
+                              <label for="LastName">Last Name: </label>
+                              <input type="text" id="lastName" name="lastName"/>
+                              </div>
+
+                              <div>
+                              <label for="Username">Username: </label>
+                              <input type="text" id="Username" name="Username" required/>
+                              </div>
+
+                              <div>
+                              <label for="Password">Password: </label>
+                              <input type="text" id="Password" name="Password" required/>
+                              </div>
+
+                              <div>
+                              <label for="Email">Email: </label>
+                              <input type="text" id="Email" name="Email"/>
+                              </div>
+
+                              <button id="AccountDeleteButton" type="submit">Submit</button>
+                      </form>
+        
+
+              <div style={{ display: visible === 'section5' ? 'block' : 'none' }}>
+              <h2>Are you sure you want to delete your account?</h2>
+
+              </div>
               </div>
             </div>
             </div>
