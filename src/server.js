@@ -14,13 +14,8 @@ const sql = require('mssql');
 const server = http.createServer(async (req, res) => {
     if (req.url === '/api/event' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query('SELECT * FROM special_events');
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -28,19 +23,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        await sql.close();
+        // await sql.close();
       }
     }
     if (req.url === '/api/ticket' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query('SELECT TicketType, Prices FROM tickets GROUP BY Prices, TicketType');
-   
-        // Send the data as JSON
         res.writeHead(200, { 'Content-Type': 'application/json' });
         return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -48,19 +37,12 @@ const server = http.createServer(async (req, res) => {
         res.writeHead(500, { 'Content-Type': 'text/plain' });
         return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        // await sql.close();
       }
     }
     if (req.url === '/api/ride1' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM ride_info WHERE Zone_code = 'ZONE0001'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -68,19 +50,12 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        // await sql.close();
       }
     }
     if (req.url === '/api/stall1' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM food_stalls WHERE Zone_code = 'ZONE0001'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -88,19 +63,12 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        // await sql.close();
       }
     }
     if (req.url === '/api/shop1' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM Merchandise WHERE Zone_code = 'ZONE0001'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -108,19 +76,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        await sql.close();
+        // await sql.close();
       }
     }
     if (req.url === '/api/service1' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM amenities_and_service WHERE Zone_code = 'ZONE0001'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -128,19 +90,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        //await sql.close();
+        
       }
     }
     if (req.url === '/api/ride2' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM ride_info WHERE Zone_code = 'ZONE0002'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -148,19 +104,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        //await sql.close();
+        
       }
     }
     if (req.url === '/api/stall2' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM food_stalls WHERE Zone_code = 'ZONE0002'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -168,19 +118,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        //await sql.close();
+        
       }
     }
     if (req.url === '/api/shop2' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM Merchandise WHERE Zone_code = 'ZONE0002'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -188,19 +132,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        //await sql.close();
+        
       }
     }
     if (req.url === '/api/service2' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM amenities_and_service WHERE Zone_code = 'ZONE0002'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -208,19 +146,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        //await sql.close();
+        
       }
     }
     if (req.url === '/api/ride3' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM ride_info WHERE Zone_code = 'ZONE0003'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -228,19 +160,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        //await sql.close();
+        
       }
     }
     if (req.url === '/api/stall3' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM food_stalls WHERE Zone_code = 'ZONE0003'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -248,19 +174,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        //await sql.close();
+        
       }
     }
     if (req.url === '/api/shop3' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM Merchandise WHERE Zone_code = 'ZONE0003'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -268,19 +188,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        //await sql.close();
+        
       }
     }
     if (req.url === '/api/service3' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM amenities_and_service WHERE Zone_code = 'ZONE0003'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -288,19 +202,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        //await sql.close();
+        
       }
     }
     if (req.url === '/api/ride4' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM ride_info WHERE Zone_code = 'ZONE0004'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -308,19 +216,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        //await sql.close();
+        
       }
     }
     if (req.url === '/api/stall4' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM food_stalls WHERE Zone_code = 'ZONE0004'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -328,19 +230,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        //await sql.close();
+        
       }
     }
     if (req.url === '/api/shop4' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM Merchandise WHERE Zone_code = 'ZONE0004'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -348,19 +244,13 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        //await sql.close();
+        
       }
     }
     if (req.url === '/api/service4' && req.method === 'GET') {
       try {
-        // Connect to the database
         await sql.connect(config);
-   
-        // Query to fetch data from the login table
         const result = await sql.query("SELECT * FROM amenities_and_service WHERE Zone_code = 'ZONE0004'");
-   
-        // Send the data as JSON
          res.writeHead(200, { 'Content-Type': 'application/json' });
          return res.end(JSON.stringify(result.recordset));
       } catch (error) {
@@ -368,8 +258,7 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-        // Close the database connection
-        await sql.close();
+        // await sql.close();
       }
     }
  if (req.url === '/api/ride' && req.method === 'GET') {
@@ -392,14 +281,14 @@ const server = http.createServer(async (req, res) => {
       };
   
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(responseData));
+        return res.end(JSON.stringify(responseData));
       } catch (error) {
         console.error('Error fetching data:', error.message);
         res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end('Internal Server Error');
+        return res.end('Internal Server Error');
       } finally {
      
-        await sql.close();
+        // await sql.close();
       }
     
   }else if (req.url=== '/api/purchaseTicket' && req.method === 'POST') {
@@ -438,13 +327,13 @@ const server = http.createServer(async (req, res) => {
           '${TicketsTypes}', ${CardInfo}, '${FirstName}', '${LastName}', ${Amount}, '${Address}', ${Price});
         `);
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ success: true, message: 'Ticket purchase successful' }));
+        return res.end(JSON.stringify({ success: true, message: 'Ticket purchase successful' }));
       } catch (error) {
         console.error('Error processing ticket purchase:', error.message);
         res.writeHead(500, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ success: false, message: 'Internal Server Error' }));
+        return res.end(JSON.stringify({ success: false, message: 'Internal Server Error' }));
       } finally {
-        await sql.close();
+        // await sql.close();
       }
     });
   }
@@ -461,7 +350,7 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-      await sql.close();
+      // await sql.close();
       }
     }
     if (req.url === '/api/rideinfo' && req.method === 'GET') {
@@ -477,7 +366,7 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-      await sql.close();
+      // await sql.close();
       }
     }
     if (req.url === '/api/inactiveride' && req.method === 'GET') {
@@ -493,7 +382,7 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-      await sql.close();
+      // await sql.close();
       }
     }
     if (req.url === '/api/monthlybreakdowns' && req.method === 'GET') {
@@ -509,7 +398,7 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-      await sql.close();
+      // await sql.close();
       }
     }
     if (req.url === '/api/maintenancestaff' && req.method === 'GET') {
@@ -525,23 +414,7 @@ const server = http.createServer(async (req, res) => {
          res.writeHead(500, { 'Content-Type': 'text/plain' });
          return res.end('Internal Server Error');
       } finally {
-      await sql.close();
-      }
-    }
-    if (req.url === '/api/maintenancestaff' && req.method === 'GET') {
-      try {
-      await sql.connect(config);
-
-        const result = await sql.query("SELECT * FROM employee WHERE employee_id = 'EmpM0001'");
-
-         res.writeHead(200, { 'Content-Type': 'application/json' });
-         return res.end(JSON.stringify(result.recordset));
-      } catch (error) {
-        console.error('Error fetching data:', error.message);
-         res.writeHead(500, { 'Content-Type': 'text/plain' });
-         return res.end('Internal Server Error');
-      } finally {
-      await sql.close();
+      // await sql.close();
       }
     }
     if (req.url=== '/api/updateemppass' && req.method === 'POST') {
@@ -565,7 +438,7 @@ const server = http.createServer(async (req, res) => {
           res.writeHead(500, { 'Content-Type': 'application/json' });
           return res.end(JSON.stringify({ success: false, message: 'Internal Server Error' }));
         } finally {
-          await sql.close();
+          // await sql.close();
         }
       });
     }
@@ -580,7 +453,7 @@ const server = http.createServer(async (req, res) => {
           const { CurrentPassword, Wage, PermitCode } = JSON.parse(body);
           await sql.query(`
             UPDATE employee
-            SET hourly_pay = '${Wage}'
+            SET hourly_pay = ${Wage}
             WHERE user_pass = '${CurrentPassword}' AND Supervisor_code = ${PermitCode};
           `);
           res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -590,7 +463,7 @@ const server = http.createServer(async (req, res) => {
           res.writeHead(500, { 'Content-Type': 'application/json' });
           return res.end(JSON.stringify({ success: false, message: 'Internal Server Error' }));
         } finally {
-          await sql.close();
+          // await sql.close();
         }
       });
     }
@@ -607,6 +480,7 @@ const server = http.createServer(async (req, res) => {
             let Stat = '';
             switch(Status){
               case 'Active':
+                Stat = 'Active'
               break;
               case 'Inactive':
                 Stat = 'Inactive';
@@ -621,22 +495,22 @@ const server = http.createServer(async (req, res) => {
             WHERE RideID = '${RideID}';
           `);
           res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ success: true, message: 'Updated Status successfully' }));
+          return res.end(JSON.stringify({ success: true, message: 'Updated Status successfully' }));
         } catch (error) {
           console.error('Error processing:', error.message);
           res.writeHead(500, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ success: false, message: 'Internal Server Error' }));
+          return res.end(JSON.stringify({ success: false, message: 'Internal Server Error' }));
         } finally {
-          await sql.close();
+          // await sql.close();
         }
       });
     }
-    
 
-    else {
-      // Handle other routes or requests
+
+
+  else {
        res.writeHead(404, { 'Content-Type': 'text/plain' });
-       res.end('Not Found');
+       return res.end('Not Found');
     }
   });
 const port =  process.env.PORT || 3001; 
