@@ -462,6 +462,87 @@ const server = http.createServer(async (req, res) => {
         await sql.close();
       }
     });
+     
+    if (req.url === '/api/issuelog' && req.method === 'GET') {
+      try {
+      await sql.connect(config);
+ 
+        const result = await sql.query("SELECT * FROM issue_log");
+
+         res.writeHead(200, { 'Content-Type': 'application/json' });
+         return res.end(JSON.stringify(result.recordset));
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+         res.writeHead(500, { 'Content-Type': 'text/plain' });
+         return res.end('Internal Server Error');
+      } finally {
+      await sql.close();
+      }
+    }
+    if (req.url === '/api/rideinfo' && req.method === 'GET') {
+      try {
+      await sql.connect(config);
+ 
+        const result = await sql.query("SELECT * FROM ride_info");
+
+         res.writeHead(200, { 'Content-Type': 'application/json' });
+         return res.end(JSON.stringify(result.recordset));
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+         res.writeHead(500, { 'Content-Type': 'text/plain' });
+         return res.end('Internal Server Error');
+      } finally {
+      await sql.close();
+      }
+    }
+    if (req.url === '/api/inactiveride' && req.method === 'GET') {
+      try {
+      await sql.connect(config);
+ 
+        const result = await sql.query("SELECT RideID, RideName, Name FROM ride_info, theme_zone WHERE ride_info.Zone_code = theme_zone.Zone_code AND ride_info.OperationStatus = 'Inactive'");
+
+         res.writeHead(200, { 'Content-Type': 'application/json' });
+         return res.end(JSON.stringify(result.recordset));
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+         res.writeHead(500, { 'Content-Type': 'text/plain' });
+         return res.end('Internal Server Error');
+      } finally {
+      await sql.close();
+      }
+    }
+    if (req.url === '/api/monthlybreakdowns' && req.method === 'GET') {
+      try {
+      await sql.connect(config);
+ 
+        const result = await sql.query("SELECT MONTH(DateStart)AS MONTH, YEAR(DateStart) AS YEAR, COUNT(IssueRideID) AS BROKE_DOWN_RIDES FROM issue_log GROUP BY MONTH(DateStart), YEAR(DateStart)");
+
+         res.writeHead(200, { 'Content-Type': 'application/json' });
+         return res.end(JSON.stringify(result.recordset));
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+         res.writeHead(500, { 'Content-Type': 'text/plain' });
+         return res.end('Internal Server Error');
+      } finally {
+      await sql.close();
+      }
+    }
+    if (req.url === '/api/maintenancestaff' && req.method === 'GET') {
+      try {
+      await sql.connect(config);
+ 
+        const result = await sql.query("SELECT * FROM employee WHERE employee_id = 'EmpM0001'");
+
+         res.writeHead(200, { 'Content-Type': 'application/json' });
+         return res.end(JSON.stringify(result.recordset));
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+         res.writeHead(500, { 'Content-Type': 'text/plain' });
+         return res.end('Internal Server Error');
+      } finally {
+      await sql.close();
+      }
+    }
     else {
       // Handle other routes or requests
        res.writeHead(404, { 'Content-Type': 'text/plain' });
