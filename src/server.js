@@ -1,6 +1,5 @@
 const http = require('http');
 const sql = require('mssql');
-
     const config = {
         user: 'CSThemeParkAdminTeam7', 
         password: '2023DBTeam7!', 
@@ -133,7 +132,6 @@ const server = http.createServer(async (req, res) => {
         //await sql.close();
       }
     }
-
     if (req.url === '/api/ride2' && req.method === 'GET') {
       try {
         // Connect to the database
@@ -214,7 +212,6 @@ const server = http.createServer(async (req, res) => {
         //await sql.close();
       }
     }
-
     if (req.url === '/api/ride3' && req.method === 'GET') {
       try {
         // Connect to the database
@@ -295,7 +292,6 @@ const server = http.createServer(async (req, res) => {
         //await sql.close();
       }
     }
-
     if (req.url === '/api/ride4' && req.method === 'GET') {
       try {
         // Connect to the database
@@ -378,7 +374,6 @@ const server = http.createServer(async (req, res) => {
     }
  if (req.url === '/api/ride' && req.method === 'GET') {
       try {
-
         await sql.connect(config);
    
       
@@ -387,17 +382,14 @@ const server = http.createServer(async (req, res) => {
         FROM ride_info \
         WHERE ride_info.Accessibility_Attraction = 'Available'\
       ");
-
        const resultTest = await sql.query("SELECT ride_info.RideName AS InactiveRide, ride_info.Description AS InactiveDescript\
        FROM ride_info \
        WHERE ride_info.OperationStatus = 'Inactive'\ ");
-
        
        const responseData = {
         RideData: result.recordset,
         InactiveRides: resultTest.recordset,
       };
-
   
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(responseData));
@@ -412,20 +404,15 @@ const server = http.createServer(async (req, res) => {
     
   }else if (req.url=== '/api/purchaseTicket' && req.method === 'POST') {
     let body = '';
-
     req.on('data', (chunk) => {
       body += chunk;
     });
-
     req.on('end', async () => {
       try {
         await sql.connect(config);
-
         const { TicketsTypes, Amount, FirstName, LastName, Address, CardInfo } = JSON.parse(body);
-
         const calcPrice = (TicketsTypes, Amount) => {
           let Price = 0;
-
           switch(TicketsTypes){
             case 'DayPass':
               Price = Amount * 33;
@@ -443,7 +430,6 @@ const server = http.createServer(async (req, res) => {
           return Price;
         }
         const Price = calcPrice(TicketsTypes, Amount);
-
         await sql.query(`
           INSERT INTO PurchasedTickets(TicketID, Date, TicketType, Cardnum, Firstname, LastName, Amount, Address, Price)
           VALUES
@@ -451,7 +437,6 @@ const server = http.createServer(async (req, res) => {
           GETDATE(),
           '${TicketsTypes}', ${CardInfo}, '${FirstName}', '${LastName}', ${Amount}, '${Address}', ${Price});
         `);
-
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ success: true, message: 'Ticket purchase successful' }));
       } catch (error) {
@@ -462,6 +447,7 @@ const server = http.createServer(async (req, res) => {
         await sql.close();
       }
     });
+  }
      if (req.url === '/api/issuelog' && req.method === 'GET') {
       try {
       await sql.connect(config);
@@ -542,15 +528,16 @@ const server = http.createServer(async (req, res) => {
       await sql.close();
       }
     }
+    
+    
+
     else {
       // Handle other routes or requests
        res.writeHead(404, { 'Content-Type': 'text/plain' });
        res.end('Not Found');
     }
   });
-
 const port =  process.env.PORT || 3001; 
-
 server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
